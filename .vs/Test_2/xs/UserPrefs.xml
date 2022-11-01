@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{069A95AC-1BD7-65DD-1AB3-B52237BD0B6C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ActorController.cs">
+    <Files>
+      <File FileName="Assets/FSMOnExit.cs" Line="10" Column="8" />
+      <File FileName="Assets/OnGroundSensor.cs" Line="35" Column="31" />
+      <File FileName="Assets/ActorController.cs" Line="79" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Test_2" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="ActorController.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e8f55236-3628-441d-9a73-81e12d259a77" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
