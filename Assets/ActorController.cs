@@ -9,7 +9,7 @@ public class ActorController : MonoBehaviour
     public PlayerInput pi;
     public float WalkSpeed = 2.0f;
     public float RunSpeed = 2.0f;
-    public float JumpSpeed = 1.5f;
+    public float JumpSpeed = 3.0f; 
 
     [SerializeField]
     private Animator anim;
@@ -53,13 +53,14 @@ public class ActorController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigid.position += PlanarVec * Time.fixedDeltaTime + ThrustVec;
+        //rigid.position += PlanarVec * Time.fixedDeltaTime + ThrustVec;
+        rigid.velocity = new Vector3(PlanarVec.x, rigid.velocity.y, PlanarVec.z) + ThrustVec;
         ThrustVec = Vector3.zero;
 
     }
 
     //message block
-    public void OnJump(Animator animator)
+    public void OnJumpEnter(Animator animator)
     {
         anim.ResetTrigger("jump");
         pi.InputEnable = false;
@@ -67,7 +68,13 @@ public class ActorController : MonoBehaviour
         ThrustVec = new Vector3(0, JumpSpeed, 0);
     }
 
-    public void OnExit()
+    public void OnGroundEnter()
+    {
+        pi.InputEnable = true;
+        LockPlanar = false;
+    }
+
+    public void OnFallEnter()
     {
         pi.InputEnable = true;
         LockPlanar = false;
@@ -75,7 +82,7 @@ public class ActorController : MonoBehaviour
 
     public void IsGround()
     {
-        print("is ground");
+        //print("is ground");
         anim.SetBool("isGround", true);
     }
 

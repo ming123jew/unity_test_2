@@ -212,14 +212,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314357477}
-  m_LocalRotation: {x: 0.007546682, y: 0.0040043253, z: -0.46869525, w: 0.88331866}
-  m_LocalPosition: {x: 3.71, y: 0.78, z: 0.01}
-  m_LocalScale: {x: 0.74563223, y: 4.1431465, z: 6.087247}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5067937, w: 0.8620674}
+  m_LocalPosition: {x: 7, y: 2.97, z: 0.04}
+  m_LocalScale: {x: 0.74563223, y: 13.391892, z: 6.087247}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0.979, y: 0, z: -55.901}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60.901}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
   pi: {fileID: 0}
   WalkSpeed: 2
   RunSpeed: 2
-  JumpSpeed: 1.5
+  JumpSpeed: 4
   anim: {fileID: 0}
 --- !u!54 &1690995720
 Rigidbody:
