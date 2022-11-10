@@ -62,6 +62,7 @@
     <Compile Include="Assets/PlayerInput.cs" />
     <Compile Include="Assets/ActorController.cs" />
     <Compile Include="Assets/FSMOnEnter.cs" />
+    <Compile Include="Assets/FSMOnUpdate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

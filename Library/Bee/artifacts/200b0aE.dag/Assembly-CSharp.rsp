@@ -382,6 +382,7 @@
 "Assets/FSMClearSignals.cs"
 "Assets/FSMOnEnter.cs"
 "Assets/FSMOnExit.cs"
+"Assets/FSMOnUpdate.cs"
 "Assets/OnGroundSensor.cs"
 "Assets/PlayerInput.cs"
 -langversion:9.0

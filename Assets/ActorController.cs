@@ -9,7 +9,9 @@ public class ActorController : MonoBehaviour
     public PlayerInput pi;
     public float WalkSpeed = 2.0f;
     public float RunSpeed = 2.0f;
-    public float JumpSpeed = 3.0f; 
+    public float JumpSpeed = 3.0f;
+    public float RollSpeed = 2.0f;
+    public float JabSpeed = 1.0f;
 
     [SerializeField]
     private Animator anim;
@@ -32,6 +34,12 @@ public class ActorController : MonoBehaviour
     {
         //常用于摄像机追随玩家 实现平滑跟踪
         anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), (pi.Run ? 2.0f : 1.0f), 0.5f));
+
+        if (rigid.velocity.magnitude > 0f)
+        {
+            anim.SetTrigger("roll");
+        }
+
         if (pi.Jump)
         {
             anim.SetTrigger("jump");
@@ -48,7 +56,7 @@ public class ActorController : MonoBehaviour
         {
             PlanarVec = (pi.Run ? RunSpeed : 1.0f) * pi.Dmag * WalkSpeed * model.transform.forward;
         }
-        
+
     }
 
     private void FixedUpdate()
@@ -62,10 +70,10 @@ public class ActorController : MonoBehaviour
     //message block
     public void OnJumpEnter(Animator animator)
     {
-        anim.ResetTrigger("jump");
+        ThrustVec = new Vector3(0, JumpSpeed, 0);
         pi.InputEnable = false;
         LockPlanar = true;
-        ThrustVec = new Vector3(0, JumpSpeed, 0);
+
     }
 
     public void OnGroundEnter()
@@ -80,6 +88,19 @@ public class ActorController : MonoBehaviour
         LockPlanar = false;
     }
 
+    public void OnRollEnter()
+    {
+        ThrustVec = new Vector3(0, RollSpeed, 0);
+        pi.InputEnable = false;
+        LockPlanar = true;
+    }
+
+    public void OnJabEnter()
+    {
+        pi.InputEnable = false;
+        LockPlanar = true;
+    }
+
     public void IsGround()
     {
         //print("is ground");
@@ -90,5 +111,12 @@ public class ActorController : MonoBehaviour
     {
         print("is not ground");
         anim.SetBool("isGround", false);
+    }
+
+    //60 p/s
+    public void OnJabUpdate()
+    {
+        ThrustVec = model.transform.forward * anim.GetFloat("jabSpeed") * JabSpeed; //new Vector3(0, JabSpeed, 0);
+
     }
 }
